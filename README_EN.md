@@ -5,17 +5,15 @@ into a single conforming three-domain volume mesh (lumen, vessel wall, pancreas)
 for simulating endovascular photo-activated ablation / photodynamic therapy
 (EPA/PDT) around the splenic artery in COMSOL Multiphysics.
 
-Builds on the model setup of Molenaar (VU Amsterdam / Amsterdam UMC).
-
 ---
 
 ## Pipeline
 
 | Step | Script | Tool | Does |
 |------|--------|------|------|
-| 1 | `align_arteries_to_pancreas.m` | MATLAB | aligns artery to pancreas (translation) |
-| 2 | `stap1_v17_ROI_meshlib.py` | Python / MeshLib | ROI crop + vessel wall + clearance |
-| 3 | `stap2_tetgen_pig197_v8.m` | MATLAB / GIBBON + TetGen | conforming 3-domain volume mesh → NASTRAN |
+| 1 | `Stap1_ 197 Centreren Arterie op Pancreas.m` | MATLAB | aligns artery to pancreas (translation) |
+| 2 | `Stap2_ ROI + Boolean.py` | Python / MeshLib | ROI crop + vessel wall + clearance |
+| 3 | `Stap3_ Tetgen.m` | MATLAB / GIBBON + TetGen | conforming 3-domain volume mesh → NASTRAN |
 | 4 | — | COMSOL | import via Mesh → Import → NASTRAN |
 
 **Step 1.** Artery and pancreas come from different segmentations and do not
@@ -72,7 +70,4 @@ These cost time to discover — worth knowing if you build on this:
   physics: light fluence spans many orders of magnitude, so use a *logarithmic*
   colour scale and a volume plot instead of slices.
 
-## Possible next steps
-- Tighter, splenic-only ROI for a smaller, faster mesh.
-- Add the diffuser/balloon as explicit domains (5-domain mesh) or as a source
-  term in the light-distribution PDE (avoids meshing the thin diffuser).
+
