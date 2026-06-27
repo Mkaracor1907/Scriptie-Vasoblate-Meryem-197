@@ -1,6 +1,4 @@
 
-% Geen centering - ITK-Snap coordinaten zijn al aligned - Stap 1
-
 clear; clc; close all;
 
 folder = 'D:\Meryem Thesis\STL_files';
